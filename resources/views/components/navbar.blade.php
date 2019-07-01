@@ -12,7 +12,7 @@
         <a class="nav-link" href="/falemais">Planos Fale Mais</a>
       </li>
       <li class="nav-item @if($current=='contact') active @endif ">
-        <a class="nav-link" href="/about">Contato</a>
+        <a class="nav-link" href="/contact">Contato</a>
       </li>
       <li class="nav-item @if($current=='about') active @endif ">
         <a class="nav-link" href="/about">Sobre a Telzir</a>
