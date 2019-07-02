@@ -20,3 +20,7 @@ Route::resource('/price', 'PriceController');
 Route::get('/charge', function() {
     return view('billing.charge');
 });
+
+Route::get('/falemais', function() {
+    return view('plans.falemais');
+});
