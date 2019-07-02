@@ -7,7 +7,8 @@ $.ajaxSetup({
 
 function newQuery() {
     if (contador) {
-        linhas = $("#tabelaProdutos>tbody>tr");
+        contador++;
+        linhas = $("#tabelaPlanos>tbody>tr");
         e = linhas.filter(function (i, elemento) {
             return elemento.cells[0].textContent == prod.id;
         });
@@ -47,7 +48,7 @@ function montarLinha(plano) {
     return linha;
 }
 
-function criarProduto() {
+function sendQuery() {
     plano = {
         "dddOrigem": $('#dddOrigem').val(),
         "dddDestino": $('#dddDestino').val(),
@@ -63,7 +64,7 @@ function criarProduto() {
     })
 }
 
-function salvarProduto() {
+function returnQuery() {
     prod = {
         id: $('#id').val(),
         nome: $('#nomeProduto').val(),
@@ -79,7 +80,7 @@ function salvarProduto() {
         data: prod,
         success: function (data) {
             prod = JSON.parse(data);
-            linhas = $("#tabelaProdutos>tbody>tr");
+            linhas = $("#tabelaPlanos>tbody>tr");
             e = linhas.filter(function (i, elemento) {
                 return elemento.cells[0].textContent == prod.id;
             });
