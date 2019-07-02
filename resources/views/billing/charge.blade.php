@@ -7,7 +7,7 @@ Telzir - Tabela de tarifas
 @section('body')
 <div class="card border">
     <div class="card-body">
-        <p class="text text-body">A Telzir tem as melores tarifas para você ligar, do Oiapoque ao Chuí, sem tomar aquele
+        <p class="text-left">A Telzir tem as melores tarifas para você ligar, do Oiapoque ao Chuí, sem tomar aquele
             susto na conta telefônica. Confira abaixo as nossas tarifas!</p>
         <h5 class="card-title">Tabela de Tarifas</h5>
         <table class="table table-ordered table-hover" id="costsTable">
@@ -53,7 +53,7 @@ Telzir - Tabela de tarifas
         </table>
     </div>
     <div class="card-body">
-        <p class="text text-body">Você sabe como funciona o tempo de tarifação de ligações?
+        <p class="text-left">Você sabe como funciona o tempo de tarifação de ligações?
         De acordo com as regras da Anatel, o tempo fazer a cobrança das ligações são: </p>
         <ul>
             <li>Até 3 segundos, a ligação não é cobrada.</li>
@@ -64,7 +64,7 @@ Telzir - Tabela de tarifas
             <li>Passado este tempo inicial, a ligação é cobrada a cada 6 segundos.</li>
         </ul>
 
-        <p class="text text-body">Depois que a sua ligação acaba, nosso sistema soma o tempo de ligação e multiplica pelo valor da tarifa por minuto, baseado em informações do seu DDD de origem e o DDD de destino. Assim, conseguimos fazer com que sua ligação seja cobrada de maneira justa, sem susto na conta telefônica.</p>
+        <p class="text-left">Depois que a sua ligação acaba, nosso sistema soma o tempo de ligação e multiplica pelo valor da tarifa por minuto, baseado em informações do seu DDD de origem e o DDD de destino. Assim, conseguimos fazer com que sua ligação seja cobrada de maneira justa, sem susto na conta telefônica.</p>
     </div>
 </div>
 
