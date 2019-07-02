@@ -1,4 +1,3 @@
-var contador = 0;
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': "{{ csrf_token() }}"
@@ -6,18 +5,6 @@ $.ajaxSetup({
 })
 
 function newQuery() {
-    if (contador) {
-        contador++;
-        linhas = $("#tabelaPlanos>tbody>tr");
-        e = linhas.filter(function (i, elemento) {
-            return elemento.cells[0].textContent == prod.id;
-        });
-        e[0].cells[0].textContent = "";
-        e[0].cells[1].textContent = "";
-        e[0].cells[2].textContent = "";
-        e[0].cells[3].textContent = "";
-        e[0].cells[4].textContent = "";
-    }
     $('#dddOrigem').val('');
     $('#dddDestino').val('');
     $('#minutosGastos').val('');
@@ -48,7 +35,7 @@ function montarLinha(plano) {
     return linha;
 }
 
-function sendQuery() {
+function createQuery() {
     plano = {
         "dddOrigem": $('#dddOrigem').val(),
         "dddDestino": $('#dddDestino').val(),
@@ -64,32 +51,32 @@ function sendQuery() {
     })
 }
 
-function returnQuery() {
-    prod = {
-        id: $('#id').val(),
-        nome: $('#nomeProduto').val(),
-        estoque: $('#quantidade').val(),
-        preco: $('#preco').val(),
-        categoria_id: $('#categoria').val()
+function editQuery() {
+    plano = {
+        dddOrigem:  $('#dddOrigem').val(),
+        dddDestino: $('#dddDestino').val(),
+        minutosGastos: $('#minutosGastos').val(),
+        planoEscolhido: $('#planoEscolhido').val()
     };
 
     $.ajax({
         type: "PUT",
-        url: "/api/produtos/" + prod.id,
+        url: "/api/produtos/",
         context: this,
-        data: prod,
+        data: plano,
         success: function (data) {
-            prod = JSON.parse(data);
+            plano = JSON.parse(data);
             linhas = $("#tabelaPlanos>tbody>tr");
             e = linhas.filter(function (i, elemento) {
-                return elemento.cells[0].textContent == prod.id;
+                return elemento.cells[0].textContent == plano.dddOrigem;
             });
             if (e) {
-                e[0].cells[0].textContent = prod.id;
-                e[0].cells[1].textContent = prod.nome;
-                e[0].cells[2].textContent = prod.estoque;
-                e[0].cells[3].textContent = prod.preco;
-                e[0].cells[4].textContent = prod.categoria_id;
+                e[0].cells[0].textContent = plano.dddOrigem;
+                e[0].cells[1].textContent = plano.dddDestino;
+                e[0].cells[2].textContent = plano.minutosGastos;
+                e[0].cells[3].textContent = plano.planoEscolhido;
+                e[0].cells[4].textContent = plano.precoComPlano;
+                e[0].cells[5].textContent = plano.precoSemPlano;
             }
         },
         error: function (error) {
@@ -98,14 +85,14 @@ function returnQuery() {
     });
 }
 
-$('#formProduto').submit(function (event) {
+$('#formPlano').submit(function (event) {
     event.preventDefault();
-    if ($("#id").val() != '') {
-        salvarProduto();
+    if ($("#dddOrigem").val() != '') {
+        editQuery();
     } else {
-        criarProduto();
+        createQuery();
     }
-    $("#dlgProdutos").modal('hide');
+    $("#dlgPlan").modal('hide');
 
 })
 
