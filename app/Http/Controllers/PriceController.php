@@ -88,5 +88,17 @@ class PriceController extends Controller
             "precoSemPlano" => $precoSemPlano
         ]);
     }
+    
+    public function charge() {
+        return view('billing.charge');
+    }
+    
+    public function falemais() {
+        return view('plans.falemais');
+    }
+    
+    public function index() {
+        return view('index');
+    }
 
 }
