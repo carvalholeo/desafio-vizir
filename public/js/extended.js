@@ -29,6 +29,8 @@ function montarLinha(plano) {
 function formatNumber(preco) {
     var ajustar = preco;
     const ajustado = ajustar.toFixed(2);
+    
+    return ajustado;
 }
 
 function Query() {
