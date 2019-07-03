@@ -51,8 +51,8 @@ function editQuery() {
     };
 
     $.ajax({
-        type: "PUT",
-        url: "/api/produtos/",
+        type: "POST",
+        url: "/api/plano/",
         context: this,
         data: plano,
         success: function (data) {
