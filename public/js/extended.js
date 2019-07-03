@@ -18,7 +18,7 @@ function montarLinha(plano) {
         "<td>" + plano.dddOrigem + "</td>" +
         "<td>" + plano.dddDestino + "</td>" +
         "<td>" + plano.minutosGastos + "</td>" +
-        "<td>" + plano.planoEscolhido + "</td>" +
+        "<td>FaleMais " + plano.planoEscolhido + "</td>" +
         "<td>" + plano.precoComPlano + "</td>" +
         "<td>" + plano.precoSemPlano + "</td>" +
         "</tr>";
