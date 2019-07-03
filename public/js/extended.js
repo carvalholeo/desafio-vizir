@@ -13,15 +13,6 @@ function newQuery() {
     $('#dlgPlan').modal('show');
 }
 
-function carregarProdutos() {
-    $.getJSON('/api/produtos', function (plano) {
-        for (i = 0; i < plano.length; i++) {
-            linha = montarLinha(plano[i]);
-            $('#tabelaProdutos>tbody').append(linha);
-        }
-    })
-}
-
 function montarLinha(plano) {
     var linha = "<tr>" +
         "<td>" + plano.dddOrigem + "</td>" +
@@ -80,7 +71,14 @@ function editQuery() {
             }
         },
         error: function (error) {
-            console.log(error);
+            show = "<div class='alert alert-danger alert-dismissible fade show' role='alert' id='alertError'>" +
+                        error +
+                        "<button type='cancel' class='close' data-dismiss='alert' aria-label='Close'>" +
+                            "<span aria-hidden=\"true\">&times;</span>" +
+                        "</button>" +
+                    "</div>";
+            $('div>#dlgError').append(show);
+            $('#alertError').alert('dispose');
         }
     });
 }
@@ -94,8 +92,4 @@ $('#formPlano').submit(function (event) {
     }
     $("#dlgPlan").modal('hide');
 
-})
-
-$(function () {
-    carregarProdutos();
 })

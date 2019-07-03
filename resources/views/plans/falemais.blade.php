@@ -28,6 +28,9 @@ Telzir - Planos FaleMais
             </table>
         </div>
     </div>
+        <div id="dlgError">
+
+        </div>
     <div class="card-footer">
         <button class="btn btn-primary" role="button" onClick="newQuery()">Faça uma consulta!</button>
     </div>
@@ -109,6 +112,7 @@ Telzir - Planos FaleMais
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('javascript')
