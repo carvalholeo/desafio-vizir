@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('/price', 'PriceController');
+Route::post('/plano', 'PriceController@calcular');
