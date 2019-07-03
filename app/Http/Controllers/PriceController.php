@@ -19,7 +19,7 @@ class PriceController extends Controller
         }
 
         if($minutosGastos < 0) {
-            return response("Quantidade de minutos precisa maior ou igual a zero", 400);
+            return response("Quantidade de minutos precisa igual ou maior que zero", 400);
         }
 
         if(($dddOrigem == 16 && ($dddDestino == 17 || $dddDestino == 18)) ||
