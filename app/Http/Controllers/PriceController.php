@@ -53,6 +53,9 @@ class PriceController extends Controller
                 $custoOriginal = 1.90;
                 $custoAdicional = $custoOriginal + ($custoOriginal * 0.10);
                 break;
+            case default:
+                return response("O DDD de origem não é válido.", 400);
+                break;
         }
         
         if ($minutosGastos > $planoEscolhido) {
