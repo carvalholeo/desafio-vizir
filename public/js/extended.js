@@ -26,6 +26,11 @@ function montarLinha(plano) {
     return linha;
 }
 
+function formatNumber(preco) {
+    var ajustar = preco;
+    const ajustado = ajustar.toFixed(2);
+}
+
 function Query() {
     plano = {
         dddOrigem:  $('#dddOrigem').val(),
