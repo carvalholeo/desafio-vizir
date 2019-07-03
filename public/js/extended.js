@@ -26,23 +26,7 @@ function montarLinha(plano) {
     return linha;
 }
 
-function createQuery() {
-    plano = {
-        "dddOrigem": $('#dddOrigem').val(),
-        "dddDestino": $('#dddDestino').val(),
-        "minutosGastos": $('#minutosGastos').val(),
-        "planoEscolhido": $('#planoEscolhido').val()
-    }
-
-    $.post("/api/plano", plan, function (data) {
-        produto = JSON.parse(data);
-        linha = montarLinha(plano);
-        $('#tabelaProdutos>tbody').append(linha);
-
-    })
-}
-
-function editQuery() {
+function Query() {
     plano = {
         dddOrigem:  $('#dddOrigem').val(),
         dddDestino: $('#dddDestino').val(),
@@ -56,19 +40,9 @@ function editQuery() {
         context: this,
         data: plano,
         success: function (data) {
-            plano = JSON.parse(data);
-            linhas = $("#tabelaPlanos>tbody>tr");
-            e = linhas.filter(function (i, elemento) {
-                return elemento.cells[0].textContent == plano.dddOrigem;
-            });
-            if (e) {
-                e[0].cells[0].textContent = plano.dddOrigem;
-                e[0].cells[1].textContent = plano.dddDestino;
-                e[0].cells[2].textContent = plano.minutosGastos;
-                e[0].cells[3].textContent = plano.planoEscolhido;
-                e[0].cells[4].textContent = plano.precoComPlano;
-                e[0].cells[5].textContent = plano.precoSemPlano;
-            }
+            produto = JSON.parse(data);
+            linha = montarLinha(produto);
+            $('#tabelaPlanos>tbody').append(linha);
         },
         error: function (error) {
             show = "<div class='alert alert-danger alert-dismissible fade show' role='alert' id='alertError'>" +
@@ -77,7 +51,6 @@ function editQuery() {
                             "<span aria-hidden=\"true\">&times;</span>" +
                         "</button>" +
                     "</div>";
-            console.log(error);
             $('div>#dlgError').append(show);
             $('#alertError').alert('dispose');
         }
@@ -86,11 +59,7 @@ function editQuery() {
 
 $('#formPlano').submit(function (event) {
     event.preventDefault();
-    if ($("#dddOrigem").val() != '') {
-        editQuery();
-    } else {
-        createQuery();
-    }
+        Query();
     $("#dlgPlan").modal('hide');
 
 })
