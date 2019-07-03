@@ -9,10 +9,10 @@ class PriceController extends Controller
 
     public function calcular(Request $request)
     {
-        $dddOrigem = $request->input('dddOrigem');
-        $dddDestino = $request->input('dddDestino');
-        $minutosGastos = $request->input('minutosGastos');
-        $planoEscolhido = $request->input('planoEscolhido');
+        (int) $dddOrigem = $request->input('dddOrigem');
+        (int) $dddDestino = $request->input('dddDestino');
+        (int) $minutosGastos = $request->input('minutosGastos');
+        (int) $planoEscolhido = $request->input('planoEscolhido');
 
         if($dddOrigem == $dddDestino) {
             return response("DDD de origem não pode ser ao igual DDD de destino", 400);
@@ -66,17 +66,15 @@ class PriceController extends Controller
             $precoComPlano = 0.00;
             $precoSemPlano = $minutosGastos * $custoOriginal;
         }
-
-        $plano = "{
-            \"dddOrigem\": $dddOrigem,
-            \"dddDestino\": $dddDestino,
-            \"minutosGastos\": $minutosGastos,
-            \"planoEscolhido\": $planoEscolhido,
-            \"precoComPlano\": $precoComPlano,
-            \"precoSemPlano\": $precoSemPlano
-        }";
         
-        return $plano;
+        return response()->json([
+            "dddOrigem" => $dddOrigem,
+            "dddDestino" => $dddDestino,
+            "minutosGastos" => $minutosGastos,
+            "planoEscolhido" => $planoEscolhido,
+            "precoComPlano" => $precoComPlano,
+            "precoSemPlano" => $precoSemPlano
+        ]);
     }
 
 }
