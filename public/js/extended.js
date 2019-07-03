@@ -72,11 +72,12 @@ function editQuery() {
         },
         error: function (error) {
             show = "<div class='alert alert-danger alert-dismissible fade show' role='alert' id='alertError'>" +
-                        error +
+                        error.responseText +
                         "<button type='cancel' class='close' data-dismiss='alert' aria-label='Close'>" +
                             "<span aria-hidden=\"true\">&times;</span>" +
                         "</button>" +
                     "</div>";
+            console.log(error);
             $('div>#dlgError').append(show);
             $('#alertError').alert('dispose');
         }
