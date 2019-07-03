@@ -13,7 +13,18 @@ class PriceController extends Controller
         (int) $dddDestino = $request->input('dddDestino');
         (int) $minutosGastos = $request->input('minutosGastos');
         (int) $planoEscolhido = $request->input('planoEscolhido');
-
+        
+        $dddsAtendidos = [11, 16, 17, 18];
+        $planosExistentes = [30, 60, 120];
+        
+        if (in_array($dddOrigem, $dddsAtendidos) || in_array($dddDestino, $dddsAtendidos)) {
+            return response("DDD de origem ou destino ainda não é atendido pela Telzir =(", 400);
+        }
+            
+        if (in_array($planoEscolhido, $planosExistentes)) {
+            return response("Plano escolhido não é válido. Tente novamente.", 400);
+        }
+            
         if($dddOrigem == $dddDestino) {
             return response("DDD de origem não pode ser ao igual DDD de destino", 400);
         }
@@ -27,6 +38,7 @@ class PriceController extends Controller
         ($dddOrigem == 18 && ($dddDestino == 16 || $dddDestino == 17))) {
             return response("Ainda não estamos atendendo essa rota de ligação. Fique ligado, estamos ampliando nossas operações rapidamente!", 400);
         }
+        
 
         switch($dddOrigem) {
             case 11:
