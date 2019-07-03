@@ -11,16 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PriceController@index');
 
-Route::resource('/price', 'PriceController');
+Route::get('/charge', 'PriceController@charge');
 
-Route::get('/charge', function() {
-    return view('billing.charge');
-});
-
-Route::get('/falemais', function() {
-    return view('plans.falemais');
-});
+Route::get('/falemais', 'PriceController@falemais');
