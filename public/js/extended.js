@@ -60,6 +60,19 @@ function Query() {
                     "</div>";
             $('div>#dlgError').append(show);
             $('#alertError').alert('dispose');
+            
+            plano = {
+                dddOrigem:  $('#dddOrigem').val(),
+                dddDestino: $('#dddDestino').val(),
+                minutosGastos: $('#minutosGastos').val(),
+                planoEscolhido: $('#planoEscolhido').val(),
+                precoComPlano: $('#precoComPlano').val('-'),
+                precoSemPlano: $('#precoSemPlano').val('-')
+            };
+            
+            produto = JSON.parse(plano);
+            linha = montarLinha(produto);
+            $('#tabelaPlanos>tbody').append(linha);
         }
     });
 }
