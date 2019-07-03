@@ -11,7 +11,7 @@ Telzir - Tabela de tarifas
             susto na conta telefônica. Confira abaixo as nossas tarifas!</p>
         <h5 class="card-title">Tabela de Tarifas</h5>
         <div class="table-responsive">
-            <table class="table table-striped table-hover" id="costsTable">
+            <table class="table table-striped" id="costsTable">
                 <thead>
                     <tr>
                         <th scope="col">DDD de Origem</th>
