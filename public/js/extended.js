@@ -19,11 +19,18 @@ function montarLinha(plano) {
         "<td>" + plano.dddDestino + "</td>" +
         "<td>" + plano.minutosGastos + "</td>" +
         "<td>FaleMais " + plano.planoEscolhido + "</td>" +
-        "<td>" + plano.precoComPlano + "</td>" +
-        "<td>" + plano.precoSemPlano + "</td>" +
+        "<td> $ " + formatNumber(plano.precoComPlano) + "</td>" +
+        "<td> $ " + formatNumber(plano.precoSemPlano) + "</td>" +
         "</tr>";
 
     return linha;
+}
+
+function formatNumber(preco) {
+    var ajustar = preco;
+    const ajustado = ajustar.toFixed(2);
+    
+    return ajustado;
 }
 
 function Query() {
@@ -53,6 +60,19 @@ function Query() {
                     "</div>";
             $('div>#dlgError').append(show);
             $('#alertError').alert('dispose');
+            
+            plano = {
+                dddOrigem:  $('#dddOrigem').val(),
+                dddDestino: $('#dddDestino').val(),
+                minutosGastos: $('#minutosGastos').val(),
+                planoEscolhido: $('#planoEscolhido').val(),
+                precoComPlano: $('#precoComPlano').val('-'),
+                precoSemPlano: $('#precoSemPlano').val('-')
+            };
+            
+            produto = JSON.parse(plano);
+            linha = montarLinha(produto);
+            $('#tabelaPlanos>tbody').append(linha);
         }
     });
 }
