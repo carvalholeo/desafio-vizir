@@ -17,11 +17,15 @@ class PriceController extends Controller
         $dddsAtendidos = array(11, 16, 17, 18);
         $planosExistentes = array(30, 60, 120);
         
-        if (in_array($dddOrigem, $dddsAtendidos) || in_array($dddDestino, $dddsAtendidos)) {
+        if(!is_numeric($dddOrigem) || !is_numeric($dddDestino) || !is_numeric($minutosGastos) || !is_numeric($planoEscolhido)) {
+            return response("Uma das opções digitadas não é um número válido. Tente novamente.", 400);
+        }
+            
+        if(in_array($dddOrigem, $dddsAtendidos) || in_array($dddDestino, $dddsAtendidos)) {
             return response("DDD de origem ou destino ainda não é atendido pela Telzir =(", 400);
         }
             
-        if (in_array($planoEscolhido, $planosExistentes)) {
+        if(in_array($planoEscolhido, $planosExistentes)) {
             return response("Plano escolhido não é válido. Tente novamente.", 400);
         }
             
