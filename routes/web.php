@@ -16,3 +16,5 @@ Route::get('/', 'PriceController@index');
 Route::get('/charge', 'PriceController@charge');
 
 Route::get('/falemais', 'PriceController@falemais');
+
+Route::get('/about', 'PriceController@about');
