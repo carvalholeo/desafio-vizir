@@ -19,21 +19,21 @@ class PriceController extends Controller
         $planosExistentes = array(30, 60, 120);
         
         if(!is_numeric($dddOrigem) || !is_numeric($dddDestino) || !is_numeric($minutosGastos) || !is_numeric($planoEscolhido)) {
-            return response("Uma das opções digitadas não é um número válido. Tente novamente.", 400);
+            throw new \App\Exceptions\OpcaoNaoNumerica("Uma das opções digitadas não é um número válido. Tente novamente.");
         }
             
         if($dddOrigem == $dddDestino) {
-            return response("DDD de origem não pode ser ao igual DDD de destino", 400);
+            throw new \App\Exceptions\OrigemDestinoIguais("DDD de origem não pode ser ao igual DDD de destino");
         }
 
         if($minutosGastos < 0) {
-            return response("Quantidade de minutos precisa igual ou maior que zero", 400);
+            throw new \App\Exceptions\MinutosNegativos("Quantidade de minutos precisa igual ou maior que zero");
         }
 
         if(($dddOrigem == 16 && ($dddDestino == 17 || $dddDestino == 18)) ||
         ($dddOrigem == 17 && ($dddDestino == 16 || $dddDestino == 18)) ||
         ($dddOrigem == 18 && ($dddDestino == 16 || $dddDestino == 17))) {
-            return response("Ainda não estamos atendendo essa rota de ligação. Fique ligado, estamos ampliando nossas operações rapidamente!", 400);
+            throw new \App\Exceptions\DDDNaoAtendido("Ainda não estamos atendendo essa rota de ligação. Fique ligado, estamos ampliando nossas operações rapidamente!");
         }
         
 
@@ -85,8 +85,22 @@ class PriceController extends Controller
             "precoSemPlano" => $precoSemPlano
         );
         return json_encode($planoFinal);
+
+        } catch (\App\Exceptions\OpcaoNaoNumerica $e) {
+
+            return response($e->getMessage(), 400);
+        } catch (\App\Exceptions\DDDNaoAtendido $e) {
+
+            return response($e->getMessage(), 400);
+        } catch (\App\Exceptions\OrigemDestinoIguais $e) {
+
+            return response($e->getMessage(), 400);
+        } catch (\App\Exceptions\MinutosNegativos $e) {
+
+            return response($e->getMessage(), 400);
         } catch (Exception $e){
-            return response("Ocorreu um erro inesperado. Passamos isso para o nosso time e em breve tudo voltará a funcionar.", 500);
+
+            return response("Ocorreu um erro inesperado. Passamos isso para a nossa equipe de suporte e em breve tudo voltará a funcionar.", 500);
         }
     }
     
