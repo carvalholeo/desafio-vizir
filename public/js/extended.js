@@ -19,18 +19,18 @@ function montarLinha(plano) {
         "<td>" + plano.dddDestino + "</td>" +
         "<td>" + plano.minutosGastos + "</td>" +
         "<td>FaleMais " + plano.planoEscolhido + "</td>" +
-        "<td> $ " + formatNumber(plano.precoComPlano) + "</td>" +
-        "<td> $ " + formatNumber(plano.precoSemPlano) + "</td>" +
+        "<td>" + formatNumber(plano.precoComPlano) + "</td>" +
+        "<td>" + formatNumber(plano.precoSemPlano) + "</td>" +
         "</tr>";
 
     return linha;
 }
 
 function formatNumber(preco) {
-    var ajustar = preco;
-    const ajustado = ajustar.toFixed(2);
+    var valorParaFormatar = preco;
+    const formatado = valorParaFormatar.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     
-    return ajustado;
+    return formatado;
 }
 
 function Query() {
@@ -43,7 +43,7 @@ function Query() {
 
     $.ajax({
         type: "POST",
-        url: "/api/plano/",
+        url: "api/plano/",
         context: this,
         data: plano,
         success: function (data) {
@@ -61,13 +61,12 @@ function Query() {
             $('div>#dlgError').append(show);
             $('#alertError').alert('dispose');
             
-            plano = {
-                dddOrigem:  $('#dddOrigem').val(),
+            plano = { dddOrigem:  $('#dddOrigem').val(),
                 dddDestino: $('#dddDestino').val(),
                 minutosGastos: $('#minutosGastos').val(),
                 planoEscolhido: $('#planoEscolhido').val(),
-                precoComPlano: $('#precoComPlano').val('-'),
-                precoSemPlano: $('#precoSemPlano').val('-')
+                precoComPlano: '-',
+                precoSemPlano: '-'
             };
             
             produto = JSON.parse(plano);
