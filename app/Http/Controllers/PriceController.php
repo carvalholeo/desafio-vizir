@@ -21,14 +21,6 @@ class PriceController extends Controller
             return response("Uma das opções digitadas não é um número válido. Tente novamente.", 400);
         }
             
-        if(in_array($dddOrigem, $dddsAtendidos) || in_array($dddDestino, $dddsAtendidos)) {
-            return response("DDD de origem ou destino ainda não é atendido pela Telzir =(", 400);
-        }
-            
-        if(in_array($planoEscolhido, $planosExistentes)) {
-            return response("Plano escolhido não é válido. Tente novamente.", 400);
-        }
-            
         if($dddOrigem == $dddDestino) {
             return response("DDD de origem não pode ser ao igual DDD de destino", 400);
         }
@@ -69,7 +61,7 @@ class PriceController extends Controller
                 $custoOriginal = 1.90;
                 $custoAdicional = $custoOriginal + ($custoOriginal * 0.10);
                 break;
-            case default:
+            default:
                 return response("O DDD de origem não é válido.", 400);
                 break;
         }
