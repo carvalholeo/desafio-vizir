@@ -75,14 +75,15 @@ class PriceController extends Controller
             $precoSemPlano = $minutosGastos * $custoOriginal;
         }
         
-        return response()->json([
+        $planoFinal = array(
             "dddOrigem" => $dddOrigem,
             "dddDestino" => $dddDestino,
             "minutosGastos" => $minutosGastos,
             "planoEscolhido" => $planoEscolhido,
             "precoComPlano" => $precoComPlano,
             "precoSemPlano" => $precoSemPlano
-        ]);
+        );
+        return json_encode($planoFinal);
     }
     
     public function charge() {
