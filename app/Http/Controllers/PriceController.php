@@ -9,6 +9,7 @@ class PriceController extends Controller
 
     public function calcular(Request $request)
     {
+        try {
         (int) $dddOrigem = $request->input('dddOrigem');
         (int) $dddDestino = $request->input('dddDestino');
         (int) $minutosGastos = $request->input('minutosGastos');
@@ -84,6 +85,9 @@ class PriceController extends Controller
             "precoSemPlano" => $precoSemPlano
         );
         return json_encode($planoFinal);
+        } catch (Exception $e){
+            return response("Ocorreu um erro inesperado. Passamos isso para o nosso time e em breve tudo voltará a funcionar.", 500);
+        }
     }
     
     public function charge() {
