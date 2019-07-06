@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'PriceController@index');
+Route::get('', 'PriceController@index')->name('home');
 
-Route::get('/charge', 'PriceController@charge');
+Route::get('charge', 'PriceController@charge')->name('tarifas');
 
-Route::get('/falemais', 'PriceController@falemais');
+Route::get('falemais', 'PriceController@falemais')->name('falemais');
 
-Route::get('/about', 'PriceController@about');
+Route::get('about', 'PriceController@about')->name('about');

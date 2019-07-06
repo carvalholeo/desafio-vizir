@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/plano', 'PriceController@calcular');
+Route::post('plano', 'PriceController@calcular')->name('api.falemais');
