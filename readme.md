@@ -7,7 +7,7 @@ Neste repositório estão os arquivos com a proposta de resolução do desafio T
 Para conseguir executar o projeto, você precisa das seguintes condições na sua máquina:
 
 - PHP 7.1 ou superior
-- Node.JS 10.16.0
+- Node.js 10.16.0
 - Sistema Operacional Linux
 
 ## Instruções
