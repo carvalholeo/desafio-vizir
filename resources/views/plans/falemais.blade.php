@@ -9,7 +9,8 @@ Telzir - Planos FaleMais
     <div class="card-body">
         <h5 class="card-title">Planos FaleMais da Telzir</h5>
         <p class="text-left">Com os novos planos FaleMais da Telzir, você pode falar com várias cidades sem pagar pelo minuto que estiver dentro da sua franquia.</p>
-        <p class="text-left">Pensando na nossa transparência com você, colocamos abaixo um simulador pra saber quanto você vai pagar na ligação usando nosso plano. É só clicar no botão abaixo!</p>
+        <p class="text-left">Depois de esgotar sua franquia, você continua fazendo ligações, pagando a tarifa padrão de cada minuto + uma taxa de 10% pelo excendente.</p>
+        <p class="text-left">Pensando na nossa relação de transparência com você, colocamos abaixo um simulador pra saber quanto você vai pagar na ligação usando nosso plano. É só clicar no botão abaixo!</p>
         <div class="table-responsive">
             <table class="table table-striped table-bordered" id="tabelaPlanos">
                 <thead class="text-center">
