@@ -43,7 +43,7 @@ function Query() {
 
     $.ajax({
         type: "POST",
-        url: "api/plano/",
+        url: apiRoute(),
         context: this,
         data: plano,
         success: function (data) {

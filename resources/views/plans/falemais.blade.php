@@ -116,5 +116,10 @@ Telzir - Planos FaleMais
 @endsection
 
 @section('javascript')
+<script type="text/javascript">
+    function apiRoute() {
+        return "{{ route('api.falemais') }}";
+    }
+</script>
 <script src="{{ asset('js/extended.js') }}" type="text/javascript"></script>
 @endsection
