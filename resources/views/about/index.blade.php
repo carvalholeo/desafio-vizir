@@ -17,7 +17,7 @@ Telzir - Sobre a Telzir
         <p class="text-left">Nossa missão é democratizar o acesso à comunicação. Acreditamos que falar com quem você ama e resolver seus assuntos por telefone não precisa custar caro. Você pode e DEVE ter um serviço de alta qualidade e que tenha um preço justo.</p>
         <p class="text-left">Trazemos valor para os nossos clientes através de produtos e serviços adicionais que fazem sentido para ele, criando oportunidades de se comunicar cada vez mais e melhor.</p>
         <p class="text-left">Acredita no mesmo que a gente? Então vem!</p>
-        <p class="text-left">Telzir - Diminuindo a distância e aumento a conexão!</p>
+        <p class="text-left">Telzir - Diminuindo a distância e aumentando a conexão!</p>
     </div>
 </div>
 
