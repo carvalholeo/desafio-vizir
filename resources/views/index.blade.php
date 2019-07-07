@@ -14,7 +14,7 @@ Telzir - Diminuindo distâncias
                         <p class="card-text">
                         Confira as tarifas padrão por ligação efetuada com o nosso código.
                         </p>
-                        <a href="/charge" class="btn btn-primary">Tabela de tarifas</a>
+                        <a href="{{ route('tarifas') }}" class="btn btn-primary">Tabela de tarifas</a>
                     </div>
                 </div>
                 <div class="card border border-primary">
@@ -23,7 +23,7 @@ Telzir - Diminuindo distâncias
                         <p class="card-text">
                         Quer falar muito mais com todo o país pagando bem menos? Entra aqui pra ver mais essa novidade da Telzir.
                         </p>
-                        <a href="/falemais" class="btn btn-primary">FaleMais</a>
+                        <a href="{{ route('falemais') }}" class="btn btn-primary">FaleMais</a>
                     </div>
                 </div>
             </div>
