@@ -6,16 +6,16 @@
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item @if($current=='home') active @endif ">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item @if($current=='charge') active @endif ">
-        <a class="nav-link" href="/charge">Tabela de tarifas</a>
+        <a class="nav-link" href="{{ route('tarifas') }}">Tabela de tarifas</a>
       </li>
       <li class="nav-item @if($current=='falemais') active @endif ">
-        <a class="nav-link" href="/falemais">Planos Fale Mais</a>
+        <a class="nav-link" href="{{ route('falemais') }}">Planos Fale Mais</a>
       </li>
       <li class="nav-item @if($current=='about') active @endif ">
-        <a class="nav-link" href="/about">Sobre a Telzir</a>
+        <a class="nav-link" href="{{ route('about') }}">Sobre a Telzir</a>
       </li>
   </div>
 </nav>
