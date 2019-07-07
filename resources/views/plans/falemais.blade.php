@@ -32,7 +32,7 @@ Telzir - Planos FaleMais
 
         </div>
     <div class="card-footer">
-        <button class="btn btn-primary" role="button" onClick="newQuery()">Faça uma consulta!</button>
+        <button class="btn btn-primary" role="button" onClick="newQuery()">Faça uma simulação!</button>
     </div>
 
     <div class="card-body">
