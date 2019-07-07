@@ -42,7 +42,7 @@ function Query() {
     };
 
     $.ajax({
-        type: "POST",
+        type: 'POST',
         url: apiRoute(),
         context: this,
         data: plano,
