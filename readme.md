@@ -32,7 +32,7 @@ Feito isso, basta entrar em qualquer browser, no endereço indicado pelo artisan
 
 Este projeto foi criado com Laravel 5.8 e Bootstrap 4.1.
 
-### Nota sobre testes
+### _Nota sobre testes_
 
 Infelizmente, para esse projeto, NÃO há testes automatizados. Isso ocorre por dois motivos:
 
