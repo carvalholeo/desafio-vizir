@@ -35,7 +35,10 @@ class PriceController extends Controller
         ($dddOrigem == 18 && ($dddDestino == 16 || $dddDestino == 17))) {
             throw new \App\Exceptions\DDDNaoAtendido("Ainda não estamos atendendo essa rota de ligação. Fique ligado, estamos ampliando nossas operações rapidamente!");
         }
-        
+
+        if(empty($dddDestino) || empty($dddOrigem) || empty($minutosGastos) || empty($planoEscolhido)) {
+            throw new \App\Exceptions\ArgumentosVazios("Uma das opções está vazia. Todos os campos são obrigatórios. Preencha novamente.");
+        }
 
         switch($dddOrigem) {
             case 11:
@@ -96,6 +99,9 @@ class PriceController extends Controller
 
             return response($e->getMessage(), 400);
         } catch (\App\Exceptions\MinutosNegativos $e) {
+
+            return response($e->getMessage(), 400);
+        } catch (\App\Exceptions\ArgumentosVazios $e) {
 
             return response($e->getMessage(), 400);
         } catch (Exception $e){
