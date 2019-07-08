@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Exception;
 
 class PriceController extends Controller
 {
@@ -106,6 +108,7 @@ class PriceController extends Controller
             return response($e->getMessage(), 400);
         } catch (Exception $e){
 
+            Log::error($e->getMessage());
             return response("Ocorreu um erro inesperado. Passamos isso para a nossa equipe de suporte e em breve tudo voltará a funcionar.", 500);
         }
     }
