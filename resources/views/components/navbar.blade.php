@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/navbar.css') }}">
 
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark rounded">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="{{ route('home') }}">
     <i class="fa fa-phone"></i>
       Telzir
     </a>
@@ -38,4 +38,14 @@
         </a>
       </li>
   </div>
-</nav>
+</nav>ton>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item @if($current=='home') active @endif ">
+        <a class="nav-link" href="{{ route('home') }}">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
