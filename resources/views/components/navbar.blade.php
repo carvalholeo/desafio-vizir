@@ -38,14 +38,4 @@
         </a>
       </li>
   </div>
-</nav>ton>
-
-  <div class="collapse navbar-collapse" id="navbar">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item @if($current=='home') active @endif ">
-        <a class="nav-link" href="{{ route('home') }}">
-          <i class="fa fa-home"></i>
-          Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
+</nav>
